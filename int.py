@@ -39,9 +39,9 @@ st.sidebar.markdown(
     - El número de clics en botón de entradas basic, no entradas VIP
     - Sin importar en qué apartado de la web se encuentre el botón
     - No discrimina por usuario único, cada clic = +1
-    
     """
 )
+st.markdown(" ")
 
 # app main functionalities
 options = df['id'].unique().tolist()
