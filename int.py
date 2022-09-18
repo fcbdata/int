@@ -41,7 +41,7 @@ st.sidebar.markdown(
     - No discrimina por usuario único, cada clic = +1
     """
 )
-st.markdown(" ")
+st.sidebar.markdown(" ")
 
 # app main functionalities
 options = df['id'].unique().tolist()
