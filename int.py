@@ -44,7 +44,8 @@ st.sidebar.markdown(
 
 # app main functionalities
 options = df['id'].unique().tolist()
-selected_options = st.multiselect('Seleccionar partidos a comparar:',options)
+selected_options = st.multiselect('Seleccionar partidos a comparar:',options,
+                   default=("22/23 · Gamper · Pumas", "18/19 · Gamper · Boca Juniors"))
 
 st.markdown("")
 
