@@ -32,13 +32,14 @@ from PIL import Image
 image = Image.open('int.png')
 
 st.sidebar.image(image, use_column_width='auto')
-st.markdown("")
+st.markdown(" ")
 st.sidebar.subheader('⚠️ Consideraciones')
 st.sidebar.markdown(
     """
     - El número de clics en botón de entradas basic, no entradas VIP
     - Sin importar en qué apartado de la web se encuentre el botón
     - No discrimina por usuario único, cada clic = +1
+    
     """
 )
 
@@ -92,7 +93,7 @@ rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
 d = alt.layer(
     line, selectors, points, rules, text
 ).properties(
-    width=900, height=300
+    width=800, height=300
 )
 
 st.subheader('**Interés · Acumulado por Antelación**')
@@ -139,7 +140,7 @@ rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
 c = alt.layer(
     line, selectors, points, rules, text
 ).properties(
-    width=900, height=300
+    width=800, height=300
 )
 
 st.subheader('**Interés · Evolución por Antelación**')
