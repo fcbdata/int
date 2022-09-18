@@ -48,7 +48,7 @@ options = df['id'].unique().tolist()
 selected_options = st.multiselect('Seleccionar partidos a comparar:',options,
                    default=("22/23 · Gamper · Pumas", "18/19 · Gamper · Boca Juniors"))
 
-st.markdown("")
+#st.markdown("")
 
 filtered_df = df[df['id'].isin(selected_options)]
 
