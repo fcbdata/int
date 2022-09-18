@@ -38,7 +38,7 @@ st.sidebar.markdown(
     """
     - El número de clics en botón de entradas basic, no entradas VIP
     - Sin importar en qué apartado de la web se encuentre el botón
-    - No discrimina por usuario único, cada clic cuenta suma 1
+    - No discrimina por usuario único, cada clic = +1
     """
 )
 
