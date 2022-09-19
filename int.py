@@ -8,7 +8,7 @@ st.title('📈 Comparador Interés Partidos')
 st.markdown("""
 ***Fuente de datos:*** [Adobe Analytics](https://www3.an.adobe.com/x/3_j78uz)
 """)
-st.markdown("")
+#st.markdown("")
 
 # get data and define dataframe
 @st.cache
@@ -60,7 +60,7 @@ nearest = alt.selection(type='single', nearest=True, on='mouseover',
 # the basic line
 line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
-    y='int_acum:Q',
+    y='interes acumulado:Q',
     color='id:N'
 )
 
@@ -79,7 +79,7 @@ points = line.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'int_acum:Q', alt.value(' '))
+    text=alt.condition(nearest, 'interes acumulado:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
@@ -107,7 +107,7 @@ nearest = alt.selection(type='single', nearest=True, on='mouseover',
 # the basic line
 line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
-    y='interes_web:Q',
+    y='interes:Q',
     color='id:N'
 )
 
@@ -126,7 +126,7 @@ points = line.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'interes_web:Q', alt.value(' '))
+    text=alt.condition(nearest, 'interes:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
