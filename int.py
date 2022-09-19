@@ -24,7 +24,7 @@ st.sidebar.markdown(
     """
     El **Interés** por partido es una métrica proxy que representa el nivel de demanda de entradas 
     basic para un partido en concreto. Se mide por el número de clics en el botón 
-    de 'Entradas' regulares en la web oficial del FC Barcelona.
+    de 'Entradas' en la web oficial del FC Barcelona.
     """
 )
 
@@ -39,6 +39,7 @@ st.sidebar.markdown(
     - El número de clics en botón de entradas basic, no entradas VIP
     - Sin importar en qué apartado de la web se encuentre el botón
     - No discrimina por usuario único, cada clic = +1
+    - Incluye principales idiomas de la web: EN, ES, CA, FR
     """
 )
 st.sidebar.markdown(" ")
