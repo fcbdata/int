@@ -1,6 +1,21 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
+from gsheetsdb import connect
+
+# Create a connection object
+conn = connect()
+
+# Perform SQL query on the Google Sheet
+# Uses st.cache to only rerun when the query changes or after 10 min
+#@st.cache(ttl=600)
+def run_query(query):
+    rows = conn.execute(query, headers=1)
+    rows = rows.fetchall()
+    return rows
+
+sheet_url = st.secrets["https://docs.google.com/spreadsheets/d/1W9qhn3l9fwBQnh1e40w8cwsP0Mav7_xNZevl_zn6fvU/edit?usp=sharing"]
+rows = run_query(f'SELECT * FROM "{sheet_url}"')
 
 # app page config
 st.set_page_config(page_icon='⚽', page_title='Comparador Interés Partidos')
