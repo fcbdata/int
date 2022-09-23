@@ -49,7 +49,7 @@ selected_options = st.multiselect('Seleccionar partidos a comparar:',options,
 
 st.markdown("")
 
-filtered_df = df[df['id'].isin(selected_options)].round(1)
+filtered_df = df[df['id'].isin(selected_options)]
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
