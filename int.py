@@ -18,7 +18,7 @@ def get_data():
 
 df = get_data()
 
-st.dataframe(df['interes'] = df['interes'].astype(int))
+st.dataframe(df['interes'].astype(int))
 
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
