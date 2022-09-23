@@ -53,7 +53,7 @@ filtered_df = df[df['id'].isin(selected_options)]
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
-nearest1 = alt.selection(type='single', nearest1=True, on='mouseover',
+nearest1 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['antelacion'], empty='none')
 
 # the basic line
@@ -100,7 +100,7 @@ st.altair_chart(d, use_container_width=False)
 
 # INTERÉS NO-ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
-nearest2 = alt.selection(type='single', nearest2=True, on='mouseover',
+nearest2 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['antelacion'], empty='none')
 
 # the basic line
