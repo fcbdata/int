@@ -193,9 +193,9 @@ st.subheader('**%CR · Evolución por Antelación**')
 st.altair_chart(d, use_container_width=False)
 
 
-# TABLE
+# TABLA
 st.markdown("")
-st.subheader('**Interés · Tabla**')
+st.subheader('**Tabla de Datos**')
 st.table(filtered_df)
 
 
