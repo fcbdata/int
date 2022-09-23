@@ -145,8 +145,57 @@ c = alt.layer(
 st.subheader('**Interés · Evolución por Antelación**')
 st.altair_chart(c, use_container_width=False)
 
-# TABLE
+# EVOLUCIÓN %CR
+# create a selection that chooses the nearest point & selects based on x-value
+nearest = alt.selection(type='single', nearest=True, on='mouseover',
+                        fields=['%cr'], empty='none')
 
+# the basic line
+line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
+    x='antelacion:Q',
+    y='%cr:Q',
+    color='id:N'
+)
+
+# transparent selectors across the chart – this is what tells the x-value of the cursor
+selectors = alt.Chart(filtered_df).mark_point().encode(
+    x='antelacion:Q',
+    opacity=alt.value(0)
+).add_selection(
+    nearest
+)
+
+# draw points on the line and highlight based on selection
+points = line.mark_point().encode(
+    opacity=alt.condition(nearest, alt.value(1), alt.value(0))
+)
+
+# draw text labels near the points and highlight based on selection
+text = line.mark_text(align='left', dx=5, dy=-5).encode(
+    text=alt.condition(nearest, '%cr:Q', alt.value(' '))
+)
+
+# draw a rule at the location of the selection
+rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
+    x='antelacion:Q',
+).transform_filter(
+    nearest
+)
+
+# put the five layers into a chart and bind the data
+d = alt.layer(
+    line, selectors, points, rules, text
+).properties(
+    width=900, height=300
+)
+
+st.subheader('**%CR · Evolución por Antelación**')
+st.altair_chart(d, use_container_width=False)
+
+
+# TABLE
+st.markdown("")
+st.subheader('**Interés · Tabla**')
 st.table(filtered_df)
 
 
