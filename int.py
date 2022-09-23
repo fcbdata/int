@@ -51,6 +51,7 @@ st.markdown("")
 
 filtered_df = df[df['id'].isin(selected_options)]
 
+filtered_df = df['interes]..astype(float)
 filtered_df = filtered.df.style.format(precision=0)
 
 # INTERÉS ACUMULADO
