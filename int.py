@@ -18,7 +18,7 @@ def get_data():
 
 df = get_data()
 
-st.write(type(df))
+st.write(df.style.format("{:.2}"))
 
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
