@@ -10,8 +10,6 @@ st.markdown("""
 """)
 st.markdown("")
 
-pd.options.display.float_format = '${:,.2f}'.format
-
 # get data and define dataframe
 #@st.cache
 def get_data():
@@ -200,5 +198,5 @@ st.markdown("")
 st.subheader('**Tabla de Datos**')
 st.dataframe(filtered_df)
 
-
+pd.options.display.float_format = '{:,.0f}'.format
 
