@@ -197,7 +197,7 @@ st.altair_chart(e, use_container_width=False)
 st.markdown("")
 st.subheader('**Tabla de Datos**')
 st.dataframe(filtered_df)
-st.dataframe(df_display.round(2))
+st.dataframe(df.style.format("{:.2%}"))
 
 
 
