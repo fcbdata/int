@@ -18,8 +18,6 @@ def get_data():
 
 df = get_data()
 
-st.dataframe(df.style.format("{:.2%}"))
-
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
 st.sidebar.markdown(
