@@ -18,8 +18,6 @@ def get_data():
 
 df = get_data()
 
-df.style.format(precision=0)
-
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
 st.sidebar.markdown(
@@ -52,6 +50,8 @@ selected_options = st.multiselect('Seleccionar partidos a comparar:',options,
 st.markdown("")
 
 filtered_df = df[df['id'].isin(selected_options)]
+
+filtered.df.style.format(precision=0)
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
