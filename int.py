@@ -51,7 +51,7 @@ st.markdown("")
 
 filtered_df = df[df['id'].isin(selected_options)]
 
-filtered.df.style.format(precision=0)
+filtered_df = filtered.df.style.format(precision=0)
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
