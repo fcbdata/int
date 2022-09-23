@@ -11,10 +11,10 @@ st.markdown("""
 st.markdown("")
 
 # get data and define dataframe
-@st.cache
+#@st.cache
 def get_data():
-    path = r'int.xlsx'
-    return pd.read_excel(path)
+    path = r'int.csv'
+    return pd.read_csv(path)
 
 df = get_data()
 
