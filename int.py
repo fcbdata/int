@@ -198,5 +198,7 @@ st.markdown("")
 st.subheader('**Tabla de Datos**')
 st.dataframe(filtered_df)
 
+filtered_df.round(1)
+
 
 
