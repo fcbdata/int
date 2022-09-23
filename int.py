@@ -18,9 +18,6 @@ def get_data():
 
 df = get_data()
 
-df['interes'] = pd.to_numeric(df['interes'])
-df['interes_acumulado'] = pd.to_numeric(df['interes_acumulado'])
-
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
 st.sidebar.markdown(
