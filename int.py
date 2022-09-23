@@ -72,7 +72,7 @@ selectors1 = alt.Chart(filtered_df).mark_point().encode(
 )
 
 # draw points on the line and highlight based on selection
-points1 = line.mark_point().encode(
+points1 = line1.mark_point().encode(
     opacity=alt.condition(nearest1, alt.value(1), alt.value(0))
 )
 
