@@ -183,14 +183,14 @@ rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
 )
 
 # put the five layers into a chart and bind the data
-d = alt.layer(
+e = alt.layer(
     line, selectors, points, rules, text
 ).properties(
     width=900, height=300
 )
 
 st.subheader('**%CR · Evolución por Antelación**')
-st.altair_chart(d, use_container_width=False)
+st.altair_chart(e, use_container_width=False)
 
 
 # TABLA
