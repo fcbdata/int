@@ -49,7 +49,7 @@ selected_options = st.multiselect('Seleccionar partidos a comparar:',options,
 
 st.markdown("")
 
-filtered_df = df[df['id'].isin(selected_options)]
+filtered_df = df[df['id'].isin(selected_options)].round(1)
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
@@ -197,8 +197,6 @@ st.altair_chart(e, use_container_width=False)
 st.markdown("")
 st.subheader('**Tabla de Datos**')
 st.dataframe(filtered_df)
-
-filtered_df.round(1)
 
 
 
