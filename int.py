@@ -182,7 +182,9 @@ if selection:
     st.write("You selected:")
     st.json(selection["selected_rows"])
 
+# TABLE
 
+st.table(filtered_df)
 
 
 
