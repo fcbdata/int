@@ -18,6 +18,13 @@ def get_data():
 
 df = get_data()
 
+df = pd.DataFrame(
+   np.random.randn(50, 20),
+   columns=('col %d' % i for i in range(20))
+)
+
+st.dataframe(df.style.format("{:.2%}"))
+
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
 st.sidebar.markdown(
