@@ -10,6 +10,8 @@ st.markdown("""
 """)
 st.markdown("")
 
+pd.options.display.float_format = '${:,.2f}'.format
+
 # get data and define dataframe
 #@st.cache
 def get_data():
@@ -17,9 +19,6 @@ def get_data():
     return pd.read_csv(path)
 
 df = get_data()
-
-# add a comma and keep to two d.p.
-pd.options.display.float_format = '{:,.2f}'.format
 
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
