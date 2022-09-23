@@ -10,6 +10,8 @@ st.markdown("""
 """)
 st.markdown("")
 
+pd.options.display.float_format = '{:,.2f}'.format
+
 # get data and define dataframe
 #@st.cache
 def get_data():
