@@ -198,5 +198,7 @@ st.markdown("")
 st.subheader('**Tabla de Datos**')
 st.dataframe(filtered_df)
 
+st.write(df.style.format("{:.2}"))
+
 
 
