@@ -14,11 +14,11 @@ st.markdown("")
 #@st.cache
 def get_data():
     path = r'int.csv'
-    return pd.read_csv(path, dtype={'interes' : 'int64'})
+    return pd.read_csv(path)
 
 df = get_data()
 
-st.dataframe(df['interes'].astype(int))
+st.write(type(df))
 
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
