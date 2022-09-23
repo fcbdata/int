@@ -18,6 +18,11 @@ def get_data():
 
 df = get_data()
 
+df['interes'] = pd.to_numeric(df['interes'])
+df['interes_acumulado'] = pd.to_numeric(df['interes_acumulado'])
+
+pd.options.display.float_format = '{:,.0f}'.format
+
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
 st.sidebar.markdown(
@@ -50,10 +55,6 @@ selected_options = st.multiselect('Seleccionar partidos a comparar:',options,
 st.markdown("")
 
 filtered_df = df[df['id'].isin(selected_options)]
-filtered_df['interes'] = pd.to_numeric(filtered_df['interes'])
-filtered_df['interes_acumulado'] = pd.to_numeric(filtered_df['interes_acumulado'])
-
-pd.options.display.float_format = '{:,.0f}'.format
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
