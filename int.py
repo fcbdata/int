@@ -13,8 +13,8 @@ st.markdown("")
 # get data and define dataframe
 @st.cache
 def get_data():
-    path = r'int.csv'
-    return pd.read_csv(path)
+    path = r'int.xlsx'
+    return pd.read_excel(path)
 
 df = get_data()
 
