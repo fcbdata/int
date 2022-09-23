@@ -59,7 +59,7 @@ nearest = alt.selection(type='single', nearest=True, on='mouseover',
 # the basic line
 line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
-    y='int_acum:Q',
+    y='interes_acumulado:Q',
     color='id:N'
 )
 
@@ -78,7 +78,7 @@ points = line.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'int_acum:Q', alt.value(' '))
+    text=alt.condition(nearest, 'interes_acumulado:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
@@ -106,7 +106,7 @@ nearest = alt.selection(type='single', nearest=True, on='mouseover',
 # the basic line
 line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
-    y='interes_web:Q',
+    y='interes:Q',
     color='id:N'
 )
 
@@ -125,7 +125,7 @@ points = line.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'interes_web:Q', alt.value(' '))
+    text=alt.condition(nearest, 'interes:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
@@ -196,5 +196,5 @@ st.altair_chart(e, use_container_width=False)
 # TABLA
 st.markdown("")
 st.subheader('**Tabla de Datos**')
-st.table(filtered_df)
+st.dataframe(filtered_df)
 
