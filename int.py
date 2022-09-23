@@ -58,14 +58,14 @@ nearest1 = alt.selection(type='single', nearest=True, on='mouseover',
 
 # the basic line
 line1 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
-    x='antelacion:Q',
-    y='interes_acumulado:Q',
+    x='antelacion',
+    y='interes_acumulado',
     color='id:N'
 )
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
 selectors1 = alt.Chart(filtered_df).mark_point().encode(
-    x='antelacion:Q',
+    x='antelacion',
     opacity=alt.value(0)
 ).add_selection(
     nearest1
@@ -78,12 +78,12 @@ points1 = line1.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text1 = line1.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest1, 'interes_acumulado:Q', alt.value(' '))
+    text=alt.condition(nearest1, 'interes_acumulado', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
 rules1 = alt.Chart(filtered_df).mark_rule(color='gray').encode(
-    x='antelacion:Q',
+    x='antelacion',
 ).transform_filter(
     nearest1
 )
@@ -105,14 +105,14 @@ nearest2 = alt.selection(type='single', nearest=True, on='mouseover',
 
 # the basic line
 line2 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
-    x='antelacion:Q',
-    y='interes:Q',
-    color='id:N'
+    x='antelacion',
+    y='interes',
+    color='id'
 )
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
 selectors2 = alt.Chart(filtered_df).mark_point().encode(
-    x='antelacion:Q',
+    x='antelacion',
     opacity=alt.value(0)
 ).add_selection(
     nearest2
@@ -125,12 +125,12 @@ points2 = line2.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text2 = line2.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest2, 'interes:Q', alt.value(' '))
+    text=alt.condition(nearest2, 'interes', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
 rules2 = alt.Chart(filtered_df).mark_rule(color='gray').encode(
-    x='antelacion:Q',
+    x='antelacion',
 ).transform_filter(
     nearest2
 )
@@ -152,14 +152,14 @@ nearest = alt.selection(type='single', nearest=True, on='mouseover',
 
 # the basic line
 line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
-    x='antelacion:Q',
-    y='%cr:Q',
-    color='id:N'
+    x='antelacion:',
+    y='%cr',
+    color='id'
 )
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
 selectors = alt.Chart(filtered_df).mark_point().encode(
-    x='antelacion:Q',
+    x='antelacion',
     opacity=alt.value(0)
 ).add_selection(
     nearest
@@ -172,12 +172,12 @@ points = line.mark_point().encode(
 
 # draw text labels near the points and highlight based on selection
 text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, '%cr:Q', alt.value(' '))
+    text=alt.condition(nearest, '%cr', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
 rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
-    x='antelacion:Q',
+    x='antelacion',
 ).transform_filter(
     nearest
 )
