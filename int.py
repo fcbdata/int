@@ -18,7 +18,7 @@ def get_data():
 
 df = get_data()
 
-st.write(df.style.format("{:.2}"))
+st.dataframe(df.style.format(subset=['interes', 'interes_acumulado'], formatter="{:.2f}))
 
 # app sidebar
 st.sidebar.header('📖 Definición de Interés')
