@@ -196,7 +196,7 @@ st.altair_chart(d, use_container_width=False)
 # TABLA
 st.markdown("")
 st.subheader('**Tabla de Datos**')
-st.table(filtered_df)
+st.dataframe(filtered_df)
 
 
 
