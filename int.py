@@ -18,11 +18,6 @@ def get_data():
 
 df = get_data()
 
-df = pd.DataFrame(
-   np.random.randn(50, 20),
-   columns=('col %d' % i for i in range(20))
-)
-
 st.dataframe(df.style.format("{:.2%}"))
 
 # app sidebar
@@ -60,44 +55,44 @@ filtered_df = df[df['id'].isin(selected_options)]
 
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
-nearest = alt.selection(type='single', nearest=True, on='mouseover',
+nearest1 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['antelacion'], empty='none')
 
 # the basic line
-line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
+line1 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
     y='interes_acumulado:Q',
     color='id:N'
 )
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
-selectors = alt.Chart(filtered_df).mark_point().encode(
+selectors1 = alt.Chart(filtered_df).mark_point().encode(
     x='antelacion:Q',
     opacity=alt.value(0)
 ).add_selection(
-    nearest
+    nearest1
 )
 
 # draw points on the line and highlight based on selection
-points = line.mark_point().encode(
-    opacity=alt.condition(nearest, alt.value(1), alt.value(0))
+points1 = line.mark_point().encode(
+    opacity=alt.condition(nearest1, alt.value(1), alt.value(0))
 )
 
 # draw text labels near the points and highlight based on selection
-text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'interes_acumulado:Q', alt.value(' '))
+text1 = line1.mark_text(align='left', dx=5, dy=-5).encode(
+    text=alt.condition(nearest1, 'interes_acumulado:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
-rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
+rules1 = alt.Chart(filtered_df).mark_rule(color='gray').encode(
     x='antelacion:Q',
 ).transform_filter(
-    nearest
+    nearest1
 )
 
 # put the five layers into a chart and bind the data
 d = alt.layer(
-    line, selectors, points, rules, text
+    line1, selectors1, points1, rules1, text1
 ).properties(
     width=900, height=300
 )
@@ -107,44 +102,44 @@ st.altair_chart(d, use_container_width=False)
 
 # INTERÉS NO-ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
-nearest = alt.selection(type='single', nearest=True, on='mouseover',
+nearest2 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['antelacion'], empty='none')
 
 # the basic line
-line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
+line2 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
     y='interes:Q',
     color='id:N'
 )
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
-selectors = alt.Chart(filtered_df).mark_point().encode(
+selectors2 = alt.Chart(filtered_df).mark_point().encode(
     x='antelacion:Q',
     opacity=alt.value(0)
 ).add_selection(
-    nearest
+    nearest2
 )
 
 # draw points on the line and highlight based on selection
-points = line.mark_point().encode(
-    opacity=alt.condition(nearest, alt.value(1), alt.value(0))
+points2 = line2.mark_point().encode(
+    opacity=alt.condition(nearest2, alt.value(1), alt.value(0))
 )
 
 # draw text labels near the points and highlight based on selection
-text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, 'interes:Q', alt.value(' '))
+text2 = line2.mark_text(align='left', dx=5, dy=-5).encode(
+    text=alt.condition(nearest2, 'interes:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
-rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
+rules2 = alt.Chart(filtered_df).mark_rule(color='gray').encode(
     x='antelacion:Q',
 ).transform_filter(
-    nearest
+    nearest2
 )
 
 # put the five layers into a chart and bind the data
 c = alt.layer(
-    line, selectors, points, rules, text
+    line2, selectors2, points2, rules2, text2
 ).properties(
     width=900, height=300
 )
