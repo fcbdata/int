@@ -55,6 +55,8 @@ filtered_df = df[df['id'].isin(selected_options)]
 # create a selection that chooses the nearest point & selects based on x-value
 nearest1 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['antelacion:Q'], empty='none')
+nearest2 = alt.selection(type='single', nearest=True, on='mouseover',
+                        fields=['antelacion:Q'], empty='none')
 
 # the basic line
 line1 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
@@ -95,8 +97,8 @@ d = alt.layer(
     width=900, height=300
 )
 
-st.subheader('**Interés · Acumulado por Antelación**')
-st.altair_chart(d, use_container_width=False)
+st.subheader('**Interés · Evolución por Antelación**')
+st.altair_chart(c, use_container_width=False)
 
 # INTERÉS NO-ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
@@ -112,7 +114,7 @@ line2 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
 selectors2 = alt.Chart(filtered_df).mark_point().encode(
-    x='antelacion',
+    x='antelacion:Q',
     opacity=alt.value(0)
 ).add_selection(
     nearest2
