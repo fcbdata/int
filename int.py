@@ -14,7 +14,7 @@ st.markdown("")
 #@st.cache
 def get_data():
     path = r'int.csv'
-    return pd.read_csv(path)
+    return pd.read_csv(path, dtype={'interes' : 'float64'}))
 
 df = get_data()
 
