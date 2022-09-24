@@ -98,7 +98,8 @@ d = alt.layer(
 )
 
 st.subheader('**Interés · Evolución por Antelación**')
-st.altair_chart(d, use_container_width=False)
+ia = st.altair_chart(d, use_container_width=False)
+ia
 
 # INTERÉS NO-ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
@@ -145,7 +146,9 @@ c = alt.layer(
 )
 
 st.subheader('**Interés · Evolución por Antelación**')
-st.altair_chart(c, use_container_width=False)
+ina = st.altair_chart(c, use_container_width=False)
+
+st.altair_chart(ia | ina)
 
 # EVOLUCIÓN %CR
 # create a selection that chooses the nearest point & selects based on x-value
