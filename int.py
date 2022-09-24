@@ -3,8 +3,8 @@ import pandas as pd
 import altair as alt
 
 # app page config
-st.set_page_config(page_icon='⚽', page_title='Comparador Interés Partidos')
-st.title('📈 Comparador Interés Partidos')
+st.set_page_config(page_icon='🏟️', page_title='Comparador de Interés')
+st.title('📈 Comparador de Interés')
 st.markdown("""
 ***Data source:*** [Adobe Analytics](https://www3.an.adobe.com/x/3_j78uz)
 """)
@@ -54,7 +54,7 @@ filtered_df = df[df['id'].isin(selected_options)]
 # INTERÉS ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
 nearest1 = alt.selection(type='single', nearest=True, on='mouseover',
-                        fields=['antelacion:Q'], empty='none')
+                        fields=['antelacion'], empty='none')
 
 # the basic line
 line1 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
@@ -101,7 +101,7 @@ st.altair_chart(d, use_container_width=False)
 # INTERÉS NO-ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
 nearest2 = alt.selection(type='single', nearest=True, on='mouseover',
-                        fields=['antelacion:Q'], empty='none')
+                        fields=['antelacion'], empty='none')
 
 # the basic line
 line2 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
@@ -148,7 +148,7 @@ st.altair_chart(c, use_container_width=False)
 # EVOLUCIÓN %CR
 # create a selection that chooses the nearest point & selects based on x-value
 nearest3 = alt.selection(type='single', nearest=True, on='mouseover',
-                        fields=['%cr:Q'], empty='none')
+                        fields=['antelacion'], empty='none')
 
 # the basic line
 line3 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
@@ -159,7 +159,7 @@ line3 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
 selectors3 = alt.Chart(filtered_df).mark_point().encode(
-    x='antelacion',
+    x='antelacion:Q',
     opacity=alt.value(0)
 ).add_selection(
     nearest3
