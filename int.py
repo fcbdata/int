@@ -55,8 +55,6 @@ filtered_df = df[df['id'].isin(selected_options)]
 # create a selection that chooses the nearest point & selects based on x-value
 nearest1 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['antelacion:Q'], empty='none')
-nearest2 = alt.selection(type='single', nearest=True, on='mouseover',
-                        fields=['antelacion:Q'], empty='none')
 
 # the basic line
 line1 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
