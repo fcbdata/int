@@ -6,7 +6,7 @@ import altair as alt
 st.set_page_config(page_icon='⚖', page_title='Comparador de Interés')
 st.title('📈 Comparador de Interés')
 st.markdown("""
-***Data source:*** [Adobe Analytics](https://www3.an.adobe.com/x/3_j78uz)
+***Fuente de datos:*** [Adobe Analytics](https://www3.an.adobe.com/x/3_j78uz)
 """)
 st.markdown("")
 
