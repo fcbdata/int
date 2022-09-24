@@ -95,7 +95,7 @@ d = alt.layer(
     width=900, height=300
 )
 
-st.subheader('**Interés · Evolución por Antelación**')
+st.subheader('**Interés Acumulado por Antelación**')
 st.altair_chart(d, use_container_width=False)
 
 # INTERÉS NO-ACUMULADO
@@ -142,7 +142,7 @@ c = alt.layer(
     width=900, height=300
 )
 
-st.subheader('**Interés · Evolución por Antelación**')
+st.subheader('**Interés por Antelación**')
 st.altair_chart(c, use_container_width=False)
 
 # EVOLUCIÓN %CR
@@ -189,7 +189,7 @@ e = alt.layer(
     width=900, height=300
 )
 
-st.subheader('**%CR · Evolución por Antelación**')
+st.subheader('**%CR por Antelación**')
 st.altair_chart(e, use_container_width=False)
 
 
