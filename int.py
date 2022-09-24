@@ -149,44 +149,44 @@ st.altair_chart(c, use_container_width=False)
 
 # EVOLUCIÓN %CR
 # create a selection that chooses the nearest point & selects based on x-value
-nearest = alt.selection(type='single', nearest=True, on='mouseover',
+nearest3 = alt.selection(type='single', nearest=True, on='mouseover',
                         fields=['%cr:Q'], empty='none')
 
 # the basic line
-line = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
+line3 = alt.Chart(filtered_df).mark_line(interpolate='basis').encode(
     x='antelacion:Q',
     y='%cr:Q',
     color='id:N'
 )
 
 # transparent selectors across the chart – this is what tells the x-value of the cursor
-selectors = alt.Chart(filtered_df).mark_point().encode(
+selectors3 = alt.Chart(filtered_df).mark_point().encode(
     x='antelacion',
     opacity=alt.value(0)
 ).add_selection(
-    nearest
+    nearest3
 )
 
 # draw points on the line and highlight based on selection
-points = line.mark_point().encode(
-    opacity=alt.condition(nearest, alt.value(1), alt.value(0))
+points3 = line3.mark_point().encode(
+    opacity=alt.condition(nearest3, alt.value(1), alt.value(0))
 )
 
 # draw text labels near the points and highlight based on selection
-text = line.mark_text(align='left', dx=5, dy=-5).encode(
-    text=alt.condition(nearest, '%cr:Q', alt.value(' '))
+text3 = line3.mark_text(align='left', dx=5, dy=-5).encode(
+    text=alt.condition(nearest3, '%cr:Q', alt.value(' '))
 )
 
 # draw a rule at the location of the selection
-rules = alt.Chart(filtered_df).mark_rule(color='gray').encode(
+rules3 = alt.Chart(filtered_df).mark_rule(color='gray').encode(
     x='antelacion:Q',
 ).transform_filter(
-    nearest
+    nearest3
 )
 
 # put the five layers into a chart and bind the data
 e = alt.layer(
-    line, selectors, points, rules, text
+    line3, selectors3, points3, rules3, text3
 ).properties(
     width=900, height=300
 )
