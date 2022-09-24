@@ -99,7 +99,6 @@ d = alt.layer(
 
 st.subheader('**Interés · Evolución por Antelación**')
 ia = st.altair_chart(d, use_container_width=False)
-ia
 
 # INTERÉS NO-ACUMULADO
 # create a selection that chooses the nearest point & selects based on x-value
