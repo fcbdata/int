@@ -5,7 +5,6 @@ import altair as alt
 # app page config
 st.set_page_config(page_icon='⚽', page_title='Comparador de Interés')
 st.title('📈 Comparador de Interés')
-st.markdown("")
 st.info('Los datos se actualizan cada día laborable a las 17:00h CET', icon="ℹ️")
 
 # get data and define dataframe
