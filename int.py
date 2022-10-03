@@ -9,6 +9,7 @@ st.markdown("""
 ***Fuente de datos:*** [Adobe Analytics](https://www3.an.adobe.com/x/3_j78uz)
 """)
 st.markdown("")
+st.info('Los datos se actualizan cada día laborable a las 17:00h CET', icon="ℹ️")
 
 # get data and define dataframe
 #@st.cache
