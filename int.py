@@ -10,8 +10,8 @@ st.info('Los datos se actualizan cada d√≠a laborable a las 17:00h CET', icon="‚Ñ
 # get data and define dataframe
 #@st.cache
 def get_data():
-    path = r'int.json'
-    return pd.read_json(path)
+    path = r'int.csv'
+    return pd.read_csv(path)
 
 df = get_data()
 
